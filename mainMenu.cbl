@@ -32,18 +32,26 @@
            DISPLAY "2 - SELECTION MENU"
            DISPLAY "3 - ITERATION MENU"
            DISPLAY "4 - EXIT"
-           DISPLAY "ENTER CHOICE (1 - 4): "
+           DISPLAY "ENTER CHOICE (1 - 4): " WITH NO ADVANCING
            ACCEPT USER-CHOICE
 
            EVALUATE USER-CHOICE
            
                WHEN 1
+                   DISPLAY "SEQUENCE MENU"
+                   PERFORM EXIT-PROMPT
 
                WHEN 2
+                   DISPLAY "2 - SELECTION MENU"
+                   PERFORM EXIT-PROMPT
 
                WHEN 3
+                   DISPLAY "3 - ITERATION MENU"
+                   PERFORM EXIT-PROMPT
 
                WHEN 4
+                   DISPLAY "4 - EXITING PROGRAM"
+                   
 
                WHEN OTHER 
                    DISPLAY "INVALID INPUT PLEASE TRY AGAIN"
