@@ -15,7 +15,7 @@
       *SEQ
        01  USER-CHOICE-SEQ         PIC 9(2).
       *SEL
-       01  USER-CHOICE-SEl         PIC 9(2).
+       01  USER-CHOICE-SEL         PIC 9(2).
       *ITE
        01  USER-CHOICE-ITE         PIC 9(2).
 
@@ -52,6 +52,7 @@
 
                WHEN 2
                    DISPLAY "2 - SELECTION MENU"
+                   PERFORM SELECTION-MENU
                    PERFORM EXIT-PROMPT
 
                WHEN 3
@@ -72,6 +73,75 @@
            PERFORM EXIT-PROMPT
            EXIT PARAGRAPH.
        
+      *SELECTION MENU
+       SELECTION-MENU.
+           MOVE 0 TO USER-CHOICE-SEL
+           PERFORM UNTIL USER-CHOICE-SEL = 11
+           PERFORM CLEAR-SCREEN
+
+           DISPLAY "==========================="
+           DISPLAY "      SELECTION MENU        "
+           DISPLAY "==========================="
+           DISPLAY "1 - REVISED GRADES PASSED OR FAILED"
+           DISPLAY "2 - POSITIVE OR NEGATIVE"
+           DISPLAY "3 - EVEN OR ODD"
+           DISPLAY "4 - LARGER OF TWO NUMBERS"
+           DISPLAY "5 - SMALLEST OF THREE NUMBERS"
+           DISPLAY "6 - REVISED GRADES WITH EQUIVALENT"
+           DISPLAY "7 - TEMPERATURE INFORMATION"
+           DISPLAY "8 - REVISED SALESMAN INFORMATION WITH COMISSION"
+           DISPLAY "9 - NUMBER - DAY EQUIVALENT"
+           DISPLAY "10 - VOWEL OR CONSONANT"
+           DISPLAY "11 - EXIT SELECTION MENU"
+
+           DISPLAY "ENTER CHOICE (1 - 11): " WITH NO ADVANCING
+           ACCEPT USER-CHOICE-SEL
+           
+           EVALUATE USER-CHOICE-SEL
+
+               WHEN 1
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 2
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 3
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 4
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 5
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 6
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 7
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 8
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 9
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 10
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 11
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "EXITING SELECTION MENU"
+
+               WHEN OTHER
+                   DISPLAY "INVALID CHOICE PLEASE TRY AGAIN"
+
+           END-EVALUATE
+           
+           END-PERFORM
+
+           EXIT PARAGRAPH.
+
       *SEQUENCE MENU
        SEQUENCE-MENU.
            MOVE 0 TO USER-CHOICE-SEQ
