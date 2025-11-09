@@ -12,8 +12,8 @@
 
       *SEQ_4
        01  SEQ4_CELCIUS                PIC S9(5)v99.
-       01  SEQ4_FAHRENHEIT             PIC S9(5)v99.
-       01  SEQ4_F_OUT                  PIC ZZ,ZZZ.99.
+       01  SEQ4_FAHRENHEIT             PIC S9(7)v99.
+       01  SEQ4_F_OUT                  PIC +Z,ZZZ,ZZZ.99.
 
       *SEQ_5
        01  SEQ5_SALES_MAN_NUM          PIC 9(12).
@@ -21,3 +21,36 @@
        01  SEQ5_UNIT_SOLD              PIC 9(5).
        01  SEQ5_UNIT_PRICE             PIC 9(5)v99.
        01  SEQ5_STORE_TOTAL_SALES      PIC $ZZ,ZZ9.
+
+      *SEQ_6
+       01  SEQ6_Prelim                 PIC 9(3).
+       01  SEQ6_Midterm                PIC 9(3).
+       01  SEQ6_Finals                 PIC 9(3).
+       01  SEQ6_Average                PIC Z99.99.
+
+      *SEQ_7
+       01  SEQ7_USER_NUMBER            PIC 9(6).
+       01  SEQ7_STORE_RESULT           PIC ZZ,999.
+
+      *SEQ_8
+       01  SEQ8_RECT_WIDTH             PIC 9(3).
+       01  SEQ8_RECT_LENGTH            PIC 9(3).
+       01  SEQ8_RECT_AREA              PIC Z(3)V99.
+       01  SEQ8_RECT_PERIMETER         PIC Z(3)V99.
+
+      *SEQ_9
+       01  SEQ9_PI                     PIC 9(1)V99 VALUE 3.14.
+       01  SEQ9_DIAMETER               PIC 9(4).
+       01  SEQ9_RADIUS                 PIC 9(4)V99.
+       01  SEQ9_CIR_AREA               PIC Z,ZZZV99.
+       01  SEQ9_CIRCUMEFERENCE         PIC Z,ZZZV99.
+
+      *SEQ-10
+       01  SEQ10_SIDE_A                PIC 9(3).
+       01  SEQ10_SIDE_B                PIC 9(3).
+       01  SEQ10_SIDE_C                PIC 9(3).
+       01  SEQ10_T_BASE                PIC 9(3).
+       01  SEQ10_T_HEIGHT              PIC 9(3).
+       01  SEQ10_T_AREA                PIC Z(3).99.
+       01  SEQ10_T_PERI                PIC Z(3).99.
+
