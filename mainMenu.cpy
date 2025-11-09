@@ -54,3 +54,32 @@
        01  SEQ10_T_AREA                PIC Z(3).99.
        01  SEQ10_T_PERI                PIC Z(3).99.
 
+      *SEL-1
+       01  SEL1_PRELIM_IN              PIC 9(3)V99.
+       01  SEL1_MIDTERMS_IN            PIC 9(3)V99.
+       01  SEL1_FINALS_IN              PIC 9(3)V99.
+       01  SEL1_COMPUTE_AVE            PIC 9(3)V99.
+       01  SEL1_AVE_OUT                PIC Z99.99.
+
+      *SEL-2
+       01  SEL2_USER_INPUT             PIC S9(7).
+       01  SEL2_INPUT_OUT              PIC Z(7).
+
+      *SEL-3
+       01  SEL3_USER_INPUT_IN           PIC 9(3).
+       01  SEL3_USER_INPUT_OUT          PIC Z(3).
+
+      *SEL-4
+       01  SEL4_FIRST_INPUT            PIC 9(5).
+       01  SEL4_FIRST_INPUT_OUT        PIC ZZ,ZZZ.
+       01  SEL4_SEC_INPUT              PIC 9(5).
+       01  SEL4_SEC_INPUT_OUT          PIC ZZ,ZZZ.
+
+      *SEL-5
+       01  SEL5_F_INPUT                PIC 9(5).
+       01  SEL5_F_OUTPUT               PIC Z(5).
+       01  SEL5_S_INPUT                PIC 9(5).
+       01  SEL5_S_OUTPUT               PIC Z(5).
+       01  SEL5_T_INPUT                PIC 9(5).
+       01  SEL5_T_OUTPUT               PIC Z(5).
+
