@@ -102,42 +102,52 @@
                WHEN 1
                    PERFORM CLEAR-SCREEN
                    DISPLAY "1 - REVISED GRADES PASSED OR FAILED"
+                   PERFORM SEL-1
 
                WHEN 2
                    PERFORM CLEAR-SCREEN
                    DISPLAY "2 - POSITIVE OR NEGATIVE"
+                   PERFORM SEL-2
 
                WHEN 3
                    PERFORM CLEAR-SCREEN
                    DISPLAY "3 - EVEN OR ODD"
+                   PERFORM SEL-3
 
                WHEN 4
                    PERFORM CLEAR-SCREEN
                    DISPLAY "4 - LARGER OF TWO NUMBERS"
+                   PERFORM SEL-4
 
                WHEN 5
                    PERFORM CLEAR-SCREEN
                    DISPLAY "5 - SMALLEST OF THREE NUMBERS"
+                   PERFORM SEL-5
 
                WHEN 6
                    PERFORM CLEAR-SCREEN
                    DISPLAY "6 - REVISED GRADES WITH EQUIVALENT"
+                   PERFORM SEL-6
 
                WHEN 7
                    PERFORM CLEAR-SCREEN
                    DISPLAY "7 - TEMPERATURE INFORMATION"
+                   PERFORM SEL-7
 
                WHEN 8
                    PERFORM CLEAR-SCREEN
                    DISPLAY "8 - REVISED SALESMAN INFORMATION"
+                   PERFORM SEL-8
 
                WHEN 9
                    PERFORM CLEAR-SCREEN
                    DISPLAY "9 - NUMBER - DAY EQUIVALENT"
+                   PERFORM SEL-9
 
                WHEN 10
                    PERFORM CLEAR-SCREEN
                    DISPLAY "10 - VOWEL OR CONSONANT"
+                   PERFORM SEL-10
 
                WHEN 11
                    PERFORM CLEAR-SCREEN
@@ -398,7 +408,7 @@
                DISPLAY SEL4_SEC_INPUT_OUT " IS GREATER THAN "
 -                  SEL4_FIRST_INPUT_OUT
 
-           WHEN 
+           WHEN OTHER
                DISPLAY "INPUTS ARE EQUAL"
                
            END-EVALUATE
@@ -445,6 +455,7 @@
 
       *REVISED GRADES PASSED OR FAILED
        SEL-1.
+           MOVE 0 TO SEL1_COMPUTE_AVE
            DISPLAY "PLEASE INPUT PRELIM: " WITH NO ADVANCING
            ACCEPT SEL1_PRELIM_IN
 
@@ -466,7 +477,7 @@
                DISPLAY "FAILED"
            END-IF
 
-           PERFORM CLEAR-SCREEN
+           PERFORM EXIT-PROMPT
            EXIT PARAGRAPH.
 
       *SEQUENCE MENU
