@@ -101,33 +101,43 @@
 
                WHEN 1
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "1 - REVISED GRADES PASSED OR FAILED"
 
                WHEN 2
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "2 - POSITIVE OR NEGATIVE"
 
                WHEN 3
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "3 - EVEN OR ODD"
 
                WHEN 4
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "4 - LARGER OF TWO NUMBERS"
 
                WHEN 5
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "5 - SMALLEST OF THREE NUMBERS"
 
                WHEN 6
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "6 - REVISED GRADES WITH EQUIVALENT"
 
                WHEN 7
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "7 - TEMPERATURE INFORMATION"
 
                WHEN 8
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "8 - REVISED SALESMAN INFORMATION"
 
                WHEN 9
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "9 - NUMBER - DAY EQUIVALENT"
 
                WHEN 10
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "10 - VOWEL OR CONSONANT"
 
                WHEN 11
                    PERFORM CLEAR-SCREEN
