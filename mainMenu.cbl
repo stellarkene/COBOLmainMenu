@@ -101,33 +101,43 @@
            EVALUATE USER-CHOICE-ITE
                WHEN 1
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "1 - PRINT NAME 5 TIMES"
 
                WHEN 2
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "2 - PRINT 1 TO 5"
 
                WHEN 3
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "3 - PRINT EVEN NUMBERS TO N"
 
                WHEN 4
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "4 - PRINT NUMBERS FROM N TO M"
 
                WHEN 5
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "5 - SUM OF ODD NUMBERS FROM N TO M"
 
                WHEN 6
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "6 - FACTORIAL OF A NUMBER"
 
                WHEN 7
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "7 - GIVE SUM OF THE DIGITS"
 
                WHEN 8
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "8 - FIBONACCI"
 
                WHEN 9 
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "9 - PRIME NUMBER OR NOT"
 
                WHEN 10
                    PERFORM CLEAR-SCREEN
+                   DISPLAY "11 - EXIT ITERATION MENU"
 
                WHEN 11
                    PERFORM CLEAR-SCREEN
@@ -228,6 +238,129 @@
            
            END-PERFORM
 
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-10.
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-9.
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-8.
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-7.
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-6.
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-5.
+
+           MOVE 0 TO ITE5_STORE_SUM
+           DISPLAY "PLEASE INSERT A NUMBER: " WITH NO ADVANCING
+           ACCEPT ITE5_USER_INPUT_N
+
+           DISPLAY "PLEASE INPUT ANOTHER NUMBER: " WITH NO ADVANCING
+           ACCEPT ITE5_USER_INPUT_M
+
+           MOVE ITE5_USER_INPUT_N TO ITE5_COUNTER
+
+           PERFORM UNTIL ITE5_COUNTER > ITE5_USER_INPUT_M
+               IF FUNCTION MOD(ITE5_COUNTER, 2) IS NOT EQUAL TO 0
+                   ADD ITE5_COUNTER TO ITE5_STORE_SUM
+               END-IF
+               ADD 1 TO ITE5_COUNTER
+           END-PERFORM
+           
+           MOVE ITE5_STORE_SUM TO ITE5_SUM_OUT
+           DISPLAY "SUM OF ODD NUMBERS: " ITE5_SUM_OUT
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-4.
+
+           MOVE 0 TO ITE4_COUNTER
+           DISPLAY "PLEASE ENTER A NUMBER: " WITH NO ADVANCING
+           ACCEPT ITE4_USER_INPUT_N
+
+           DISPLAY "PLEASE ENTER ANOTHER NUMBER: " WITH NO ADVANCING
+           ACCEPT ITE4_USER_INPUT_M
+
+
+           MOVE ITE4_USER_INPUT_N TO ITE4_COUNTER
+
+           PERFORM UNTIL ITE4_COUNTER > ITE4_USER_INPUT_M
+
+               IF FUNCTION MOD(ITE4_COUNTER, 2) = 0
+                   MOVE ITE4_COUNTER TO ITE4_STORE_OUTPUT
+                   DISPLAY ITE4_STORE_OUTPUT
+               END-IF
+               
+               ADD 1 TO ITE4_COUNTER
+           END-PERFORM
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-3.
+
+           DISPLAY "PLEASE ENTER A NUMBER: " WITH NO ADVANCING
+           ACCEPT ITE3_USER_INPUT_IN
+
+           MOVE 1 TO ITE3_COUNTER
+           PERFORM ITE3_USER_INPUT_IN TIMES
+
+               IF FUNCTION MOD(ITE3_COUNTER, 2) IS EQUAL TO 0
+                   MOVE ITE3_COUNTER TO ITE3_USER_INTPUT_OUT
+                   DISPLAY ITE3_USER_INTPUT_OUT
+               END-IF
+
+               ADD 1 TO ITE3_COUNTER
+           END-PERFORM
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-2.
+
+           MOVE 1 TO ITE2_COUNTER
+           PERFORM 5 TIMES 
+               DISPLAY ITE2_COUNTER
+               ADD 1 TO ITE2_COUNTER
+           END-PERFORM
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *PRINT NAME 5 TIMES
+       ITE-1.
+
+           PERFORM ITE1_COUNTER TIMES
+               DISPLAY "GABRIEL E. SANCHEZ"
+           END-PERFORM
+
+           PERFORM EXIT-PROMPT
            EXIT PARAGRAPH.
 
       *VOWEL OR CONSONANT

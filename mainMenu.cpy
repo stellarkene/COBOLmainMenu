@@ -109,3 +109,37 @@
       *SEL-10
        01  SEL10_USER_CHARAC           PIC X(1).
 
+      *ITE-1
+       01  ITE1_COUNTER                PIC 9 VALUE 5.
+
+      *ITE-2
+       01  ITE2_COUNTER                PIC 9(1).
+
+      *ITE-3
+       01  ITE3_USER_INPUT_IN          PIC 9(4).
+       01  ITE3_USER_INTPUT_OUT        PIC Z,ZZZ.
+       01  ITE3_COUNTER                PIC 9(4).
+
+      *ITE-4
+       01  ITE4_USER_INPUT_N           PIC 9(3).
+       01  ITE4_USER_INPUT_M           PIC 9(3).
+       01  ITE4_COUNTER                PIC 9(3).
+       01  ITE4_STORE_OUTPUT           PIC Z(3).
+
+      *ITE-5
+       01  ITE5_USER_INPUT_N           PIC 9(3).
+       01  ITE5_USER_INPUT_M           PIC 9(3).
+       01  ITE5_STORE_SUM              PIC 9(3).
+       01  ITE5_COUNTER                PIC 9(3).
+       01  ITE5_SUM_OUT                PIC Z(3).
+
+      *ITE-6
+
+      *ITE-7
+
+      *ITE-8
+
+      *ITE-9
+
+      *ITE-10
+
