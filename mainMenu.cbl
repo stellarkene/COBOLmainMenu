@@ -57,6 +57,7 @@
 
                WHEN 3
                    DISPLAY "3 - ITERATION MENU"
+                   PERFORM ITERATION-MENU
                    PERFORM EXIT-PROMPT
 
                WHEN 4
@@ -71,6 +72,73 @@
            END-PERFORM
 
            PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *ITERATION MENU
+       ITERATION-MENU.
+           MOVE 0 TO USER-CHOICE-ITE
+           PERFORM UNTIL USER-CHOICE-ITE
+           PERFORM CLEAR-SCREEN
+           
+           DISPLAY "==========================="
+           DISPLAY "      ITERATION MENU        "
+           DISPLAY "==========================="
+           DISPLAY "1 - PRINT NAME 5 TIMES"
+           DISPLAY "2 - PRINT 1 TO 5"
+           DISPLAY "3 - PRINT EVEN NUMBERS TO N"
+           DISPLAY "4 - PRINT NUMBERS FROM N TO M"
+           DISPLAY "5 - SUM OF ODD NUMBERS FROM N TO M"
+           DISPLAY "6 - FACTORIAL OF A NUMBER"
+           DISPLAY "7 - GIVE SUM OF THE DIGITS"
+           DISPLAY "8 - FIBONACCI"
+           DISPLAY "9 - PRIME NUMBER OR NOT"
+           DISPLAY "10 - DECIMAL TO BINARY"
+           DISPLAY "11 - EXIT ITERATION MENU"
+
+           DISPLAY "ENTER CHOICE (1 - 11): " WITH NO ADVANCING
+           ACCEPT USER-CHOICE-ITE
+
+           EVALUATE USER-CHOICE-ITE
+               WHEN 1
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 2
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 3
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 4
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 5
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 6
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 7
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 8
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 9 
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 10
+                   PERFORM CLEAR-SCREEN
+
+               WHEN 11
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "EXITING ITERATION MENU"
+
+               WHEN OTHER  
+                   DISPLAY "PLEASE TRY AGAIN"
+           END-EVALUATE
+               
+           END-PERFORM 
+
            EXIT PARAGRAPH.
        
       *SELECTION MENU
