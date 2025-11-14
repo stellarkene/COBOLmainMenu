@@ -1,0 +1,456 @@
+      *Programmer name: Gabriel Sanchez
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. SELECTION-MENU.
+
+       DATA DIVISION.
+               
+           WORKING-STORAGE SECTION.
+               COPY "selectionMenu.cpy".
+
+       01  OS-NAME                 PIC X(50).
+       01  CLEAR-COMMAND           PIC X(10).
+       01  USER-CHOICE             PIC 9.
+       01  TEST-PRINT              PIC X(10).
+
+      
+      *SEL
+       01  USER-CHOICE-SEL         PIC 9(2).
+
+
+
+       PROCEDURE DIVISION.
+           PERFORM SELECTION-MENU.
+
+           STOP RUN.
+       
+      *SELECTION MENU
+       SELECTION-MENU.
+           MOVE 0 TO USER-CHOICE-SEL
+           PERFORM UNTIL USER-CHOICE-SEL = 11
+           PERFORM CLEAR-SCREEN
+
+           DISPLAY "==========================="
+           DISPLAY "      SELECTION MENU        "
+           DISPLAY "==========================="
+           DISPLAY "1 - REVISED GRADES PASSED OR FAILED"
+           DISPLAY "2 - POSITIVE OR NEGATIVE"
+           DISPLAY "3 - EVEN OR ODD"
+           DISPLAY "4 - LARGER OF TWO NUMBERS"
+           DISPLAY "5 - SMALLEST OF THREE NUMBERS"
+           DISPLAY "6 - REVISED GRADES WITH EQUIVALENT"
+           DISPLAY "7 - TEMPERATURE INFORMATION"
+           DISPLAY "8 - REVISED SALESMAN INFORMATION WITH COMISSION"
+           DISPLAY "9 - NUMBER - DAY EQUIVALENT"
+           DISPLAY "10 - VOWEL OR CONSONANT"
+           DISPLAY "11 - EXIT SELECTION MENU"
+
+           DISPLAY "ENTER CHOICE (1 - 11): " WITH NO ADVANCING
+           ACCEPT USER-CHOICE-SEL
+           
+           EVALUATE USER-CHOICE-SEL
+
+               WHEN 1
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "1 - REVISED GRADES PASSED OR FAILED"
+                   PERFORM SEL-1
+
+               WHEN 2
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "2 - POSITIVE OR NEGATIVE"
+                   PERFORM SEL-2
+
+               WHEN 3
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "3 - EVEN OR ODD"
+                   PERFORM SEL-3
+
+               WHEN 4
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "4 - LARGER OF TWO NUMBERS"
+                   PERFORM SEL-4
+
+               WHEN 5
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "5 - SMALLEST OF THREE NUMBERS"
+                   PERFORM SEL-5
+
+               WHEN 6
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "6 - REVISED GRADES WITH EQUIVALENT"
+                   PERFORM SEL-6
+
+               WHEN 7
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "7 - TEMPERATURE INFORMATION"
+                   PERFORM SEL-7
+
+               WHEN 8
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "8 - REVISED SALESMAN INFORMATION"
+                   PERFORM SEL-8
+
+               WHEN 9
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "9 - NUMBER - DAY EQUIVALENT"
+                   PERFORM SEL-9
+
+               WHEN 10
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "10 - VOWEL OR CONSONANT"
+                   PERFORM SEL-10
+
+               WHEN 11
+                   PERFORM CLEAR-SCREEN
+                   DISPLAY "EXITING SELECTION MENU"
+
+               WHEN OTHER
+                   DISPLAY "INVALID CHOICE PLEASE TRY AGAIN"
+
+           END-EVALUATE
+           
+           END-PERFORM
+
+           EXIT PARAGRAPH.
+
+      
+
+      *VOWEL OR CONSONANT
+       SEL-10.
+           
+           DISPLAY "PLEASE INPUT A CHARACTER: " WITH NO ADVANCING
+           ACCEPT SEL10_USER_CHARAC
+
+           IF SEL10_USER_CHARAC = 'A' OR SEL10_USER_CHARAC = "a" OR
+-              SEL10_USER_CHARAC = 'E' OR SEL10_USER_CHARAC = "e" OR
+-              SEL10_USER_CHARAC = 'I' OR SEL10_USER_CHARAC = "i" OR
+-              SEL10_USER_CHARAC = 'O' OR SEL10_USER_CHARAC = "o" OR
+-              SEL10_USER_CHARAC = 'U' OR SEL10_USER_CHARAC = "u" 
+           
+               DISPLAY SEL10_USER_CHARAC " IS A VOWEL"
+           ELSE 
+               DISPLAY SEL10_USER_CHARAC " IS A CONSONANT"
+           END-IF
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *NUMBER - DAY EQUIVALENT
+       SEL-9.
+           MOVE 0 TO SEL9_USER_NUM
+           DISPLAY "PLEASE INPUT A NUMBER(1-7): " WITH NO ADVANCING
+           ACCEPT SEL9_USER_NUM
+
+           EVALUATE TRUE
+           WHEN SEL9_USER_NUM = 1
+               DISPLAY "ITS MONDAY!"
+               
+           WHEN SEL9_USER_NUM = 2
+               DISPLAY "ITS TUESDAY!"
+
+           WHEN SEL9_USER_NUM = 3
+               DISPLAY "ITS WEDNESDAY"
+
+           WHEN SEL9_USER_NUM = 4
+               DISPLAY "ITS THURSDAY!"
+
+           WHEN SEL9_USER_NUM = 5
+               DISPLAY "ITS FRIDAY!"
+
+           WHEN SEL9_USER_NUM = 6
+               DISPLAY "ITS SATURDAY!"
+
+           WHEN SEL9_USER_NUM = 7
+               DISPLAY "ITS SUNDAY!"
+
+           WHEN OTHER 
+               DISPLAY "INVALID INPUT"
+
+           END-EVALUATE
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *REVISED SALESMAN INFORMATION
+       SEL-8.
+           DISPLAY "PLEASE ENTER NUMBER: " WITH NO ADVANCING
+           ACCEPT SEL8_SM_NUM
+
+           DISPLAY "PLEASE ENTER NAME: " WITH NO ADVANCING
+           ACCEPT SEL8_SM_NAME
+
+           DISPLAY "PLEASE ENTER UNITS SOLD: " WITH NO ADVANCING
+           ACCEPT SEL8_UNIT_SOLD
+
+           DISPLAY "PLEASE ENTER UNIT PRICE: " WITH NO ADVANCING
+           ACCEPT  SEL8_UNIT_PRICE
+
+           COMPUTE SEL8_SOLVE_SALES = SEL8_UNIT_SOLD * SEL8_UNIT_PRICE
+           MOVE SEL8_SOLVE_SALES TO SEL8_SALES_OUT
+           DISPLAY "TOTAL SALES: " SEL8_SALES_OUT
+           
+           EVALUATE TRUE
+           WHEN SEL8_SOLVE_SALES <= 15000
+               COMPUTE SEL8_SOLVE_COMMISSION = SEL8_SOLVE_SALES * .15
+               MOVE SEL8_SOLVE_COMMISSION TO SEL8_COMMISSION_OUT
+               DISPLAY "WITH 15% COMMISSION AMOUNTING TO: " 
+-                  SEL8_COMMISSION_OUT
+           WHEN SEL8_SOLVE_SALES <= 20000
+               COMPUTE SEL8_SOLVE_COMMISSION = SEL8_SOLVE_SALES * .20
+               MOVE SEL8_SOLVE_COMMISSION TO SEL8_COMMISSION_OUT
+               DISPLAY "WITH 20% COMMISSION AMOUNTING TO: " 
+-                  SEL8_COMMISSION_OUT
+           WHEN SEL8_SOLVE_SALES <= 25000
+               COMPUTE SEL8_SOLVE_COMMISSION = SEL8_SOLVE_SALES * .25
+               MOVE SEL8_SOLVE_COMMISSION TO SEL8_COMMISSION_OUT
+               DISPLAY "WITH 25% COMMISSION AMOUNTING TO: " 
+-                  SEL8_COMMISSION_OUT
+           WHEN SEL8_SOLVE_SALES <= 30000
+               COMPUTE SEL8_SOLVE_COMMISSION = SEL8_SOLVE_SALES * .30
+               MOVE SEL8_SOLVE_COMMISSION TO SEL8_COMMISSION_OUT
+               DISPLAY "WITH 30% COMMISSION AMOUNTING TO: " 
+-                  SEL8_COMMISSION_OUT
+           WHEN SEL8_SOLVE_SALES > 30000
+               COMPUTE SEL8_SOLVE_COMMISSION = SEL8_SOLVE_SALES * .40
+               MOVE SEL8_SOLVE_COMMISSION TO SEL8_COMMISSION_OUT
+               DISPLAY "WITH 40% COMMISSION AMOUNTING TO: " 
+-                  SEL8_COMMISSION_OUT
+           END-EVALUATE
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *TEMPERATURE INFORMATION
+       SEL-7.
+           
+           DISPLAY "PLEASE ENTER YOUR TEMPERATURE: " WITH NO ADVANCING
+           ACCEPT SEL7_USER_TEMP_IN
+           
+           EVALUATE TRUE
+           WHEN  SEL7_USER_TEMP_IN < 0
+               DISPLAY "FREEZING WEATHER."
+
+           WHEN SEL7_USER_TEMP_IN >= 0 AND SEL7_USER_TEMP_IN <= 10
+               DISPLAY "VERY COLD WEATHER."
+
+           WHEN SEL7_USER_TEMP_IN >= 11 AND SEL7_USER_TEMP_IN <= 20
+               DISPLAY "COLD WEATHER."
+
+           WHEN SEL7_USER_TEMP_IN >= 21 AND SEL7_USER_TEMP_IN <= 30
+               DISPLAY "NORMAL TEMPERATURE." 
+
+           WHEN SEL7_USER_TEMP_IN >= 31 AND SEL7_USER_TEMP_IN <= 40
+               DISPLAY "ITS HOT."
+
+           WHEN OTHER
+               DISPLAY "ITS VERY HOT."
+               
+           END-EVALUATE
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *REVISED GRADES WITH EQUIVALENT
+       SEL-6.
+
+           DISPLAY "PLEASE INPUT PRELIM: " WITH NO ADVANCING
+           ACCEPT SEL6_PRELIM_IN
+
+           DISPLAY "PLEASE INPUT MIDTERMS: " WITH NO ADVANCING
+           ACCEPT SEL6_MIDTERMS_IN
+
+           DISPLAY "PLEASE INPUT FINALS: " WITH NO ADVANCING
+           ACCEPT SEL6_FINALS_IN
+
+           COMPUTE SEL6_CALC_AVE = 
+-              (SEL6_PRELIM_IN + SEL6_MIDTERMS_IN + SEL6_FINALS_IN) / 3
+           MOVE SEL6_CALC_AVE TO SEL6_AVE_OUT
+
+           DISPLAY "NUMERICAL GRADE: " SEL6_AVE_OUT
+           
+           EVALUATE TRUE
+           WHEN SEL6_CALC_AVE > 100 
+               DISPLAY "GRADE EXCEEDED LIMIT."
+
+           WHEN SEL6_CALC_AVE >= 97 AND SEL6_CALC_AVE <= 100
+               DISPLAY "EQUIVALENT GRADE: 1.00"
+
+           WHEN SEL6_CALC_AVE >= 94 AND SEL6_CALC_AVE <= 96
+               DISPLAY "EQUIVALNET GRADE: 1.25"
+
+           WHEN SEL6_CALC_AVE >= 91 AND SEL6_CALC_AVE <= 93
+               DISPLAY "EQUIVALENT GRADE: 1.5"
+
+           WHEN SEL6_CALC_AVE >= 88 AND SEL6_CALC_AVE <= 90
+               DISPLAY "EQUIVALENT GRADE: 1.75"
+
+           WHEN SEL6_CALC_AVE >= 85 AND  SEL6_CALC_AVE <= 87
+               DISPLAY "EQUIVALENT GRADE: 2.00"
+
+           WHEN SEL6_CALC_AVE >= 82 AND SEL6_CALC_AVE <= 84
+               DISPLAY "EQUIVALENT GRADE: 2.25"
+
+           WHEN SEL6_CALC_AVE >= 79 AND SEL6_CALC_AVE <= 81
+               DISPLAY "EQUIVALENT GRADE: 2.5"
+
+           WHEN SEL6_CALC_AVE >= 76 AND SEL6_CALC_AVE <= 78
+               DISPLAY "EQUIVALENT GRADE: 2.75" 
+
+           WHEN SEL6_CALC_AVE = 75
+               DISPLAY "EQUIVALENT GRADE: 3.00"
+
+           WHEN OTHER 
+               DISPLAY "EQUIVALENT GRADE: 5.00"
+               
+           END-EVALUATE
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *SMALLEST OF THREE
+       SEL-5.
+           DISPLAY "PLEASE INPUT THE FIRST NUMBER: "
+-             WITH NO ADVANCING
+           ACCEPT SEL5_F_INPUT
+           MOVE SEL5_F_INPUT TO SEL5_F_OUTPUT
+
+           DISPLAY "PLEASE INPUT THE SECOND NUMBER: "
+-              WITH NO ADVANCING
+           ACCEPT SEL5_S_INPUT
+           MOVE SEL5_S_INPUT TO SEL5_S_OUTPUT
+
+           DISPLAY "PLEASE INPUT THE THIRD NUMBER: "
+-              WITH NO ADVANCING
+           ACCEPT SEL5_T_INPUT
+           MOVE SEL5_T_INPUT TO SEL5_T_OUTPUT
+           
+           EVALUATE TRUE
+
+           WHEN SEL5_F_INPUT <= SEL5_S_INPUT 
+-              AND SEL5_F_INPUT <= SEL5_T_INPUT
+                   DISPLAY SEL5_F_OUTPUT " IS THE LOWEST NUMBER"
+
+           WHEN SEL5_S_INPUT <= SEL5_F_INPUT 
+-              AND SEL5_S_INPUT <= SEL5_T_INPUT
+                   DISPLAY SEL5_S_OUTPUT " IS THE LOWEST NUMBER"
+
+           WHEN OTHER 
+               DISPLAY SEL5_T_OUTPUT " IS THE LOWEST NUMBER"
+           END-EVALUATE
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *LARGER OF THE TWO
+       SEL-4.
+           
+           DISPLAY "PLEASE ENTER A NUMBER: " WITH NO ADVANCING
+           ACCEPT SEL4_FIRST_INPUT
+           MOVE SEL4_FIRST_INPUT TO SEL4_FIRST_INPUT_OUT
+
+           DISPLAY "PLEASE ENTER ANOTHER NUMBER: " WITH NO ADVANCING
+           ACCEPT SEL4_SEC_INPUT
+           MOVE SEL4_SEC_INPUT TO SEL4_SEC_INPUT_OUT
+
+           EVALUATE TRUE
+           WHEN SEL4_FIRST_INPUT > SEL4_SEC_INPUT
+               DISPLAY SEL4_FIRST_INPUT_OUT " IS GREATER THAN " 
+-                  SEL4_SEC_INPUT_OUT
+
+           WHEN SEL4_FIRST_INPUT < SEL4_SEC_INPUT
+               DISPLAY SEL4_SEC_INPUT_OUT " IS GREATER THAN "
+-                  SEL4_FIRST_INPUT_OUT
+
+           WHEN OTHER
+               DISPLAY "INPUTS ARE EQUAL"
+               
+           END-EVALUATE
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *EVEN OR ODD
+       SEL-3.
+           
+           DISPLAY "PLEASE INPUT A NUMBER: " WITH NO ADVANCING
+           ACCEPT SEL3_USER_INPUT_IN
+           MOVE SEL3_USER_INPUT_IN TO SEL3_USER_INPUT_OUT
+
+           IF FUNCTION MOD(SEL3_USER_INPUT_IN, 2) = 0
+               DISPLAY SEL3_USER_INPUT_OUT WITH NO ADVANCING " IS EVEN"
+           ELSE 
+               DISPLAY SEL3_USER_INPUT_OUT WITH NO ADVANCING " IS ODD"
+           END-IF
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *POSITIVE OR NEGATIVE
+       SEL-2.
+           DISPLAY "PLEASE INPUT A NUMBER: " WITH NO ADVANCING
+           ACCEPT SEL2_USER_INPUT
+           MOVE SEL2_USER_INPUT TO SEL2_INPUT_OUT
+           
+           EVALUATE TRUE
+           WHEN SEL2_USER_INPUT > 0
+               DISPLAY SEL2_INPUT_OUT, " IS POSITIVE"
+
+           WHEN SEL2_USER_INPUT < 0 
+               DISPLAY "-" SEL2_INPUT_OUT, " IS NEGATIVE"
+
+           WHEN OTHER 
+               DISPLAY SEL2_INPUT_OUT, " IS ZERO"
+               
+           END-EVALUATE
+           
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+      *REVISED GRADES PASSED OR FAILED
+       SEL-1.
+           MOVE 0 TO SEL1_COMPUTE_AVE
+           DISPLAY "PLEASE INPUT PRELIM: " WITH NO ADVANCING
+           ACCEPT SEL1_PRELIM_IN
+
+           DISPLAY "PLEASE INPUT MIDTERMS: " WITH NO ADVANCING
+           ACCEPT SEL1_MIDTERMS_IN
+
+           DISPLAY "PLEASE INPUT FINALS: " WITH NO ADVANCING
+           ACCEPT SEL1_FINALS_IN
+
+           COMPUTE SEL1_COMPUTE_AVE = 
+-          (SEL1_PRELIM_IN + SEL1_MIDTERMS_IN + SEL1_FINALS_IN) / 3
+           MOVE SEL1_COMPUTE_AVE TO SEL1_AVE_OUT
+
+           DISPLAY "AVERAGE IS: " SEL1_AVE_OUT
+
+           IF SEL1_COMPUTE_AVE >= 75
+               DISPLAY "PASSED"
+           ELSE 
+               DISPLAY "FAILED"
+           END-IF
+
+           PERFORM EXIT-PROMPT
+           EXIT PARAGRAPH.
+
+
+      *CLEAR SCREEN FUNCTION
+       CLEAR-SCREEN.
+           ACCEPT OS-NAME FROM ENVIRONMENT "OS"
+           IF OS-NAME = "Windows_NT"
+               MOVE "cls" TO CLEAR-COMMAND
+           ELSE
+               MOVE "clear" TO CLEAR-COMMAND
+           END-IF
+
+           CALL "SYSTEM" USING CLEAR-COMMAND
+           
+           EXIT PARAGRAPH.
+
+      
+
+      *EXIT PROMPT
+       EXIT-PROMPT.
+           DISPLAY "PRESS ENTER TO EXIT"
+           ACCEPT TEST-PRINT
+           
+           EXIT PARAGRAPH.
